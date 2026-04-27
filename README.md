@@ -2,6 +2,25 @@
 
 A professional **REST API** for managing tasks in a **multi-tenant environment** built with **.NET 8**, **ASP.NET Core**, and **Entity Framework Core**.
 
+---
+
+## 📖 API Documentation
+
+> **👉 For detailed API documentation with comprehensive examples, curl commands, and request/response samples, please visit:**
+> 
+> ### **[📚 API DOCUMENTATION GUIDE](./README_API_DOCUMENTATION.md)**
+>
+> This guide includes:
+> - ✅ Complete endpoint documentation
+> - ✅ X-Tenant-Id header specifications
+> - ✅ Request/Response examples for all endpoints
+> - ✅ cURL command examples
+> - ✅ Real-world usage scenarios
+> - ✅ Multi-tenancy architecture explanation
+> - ✅ Troubleshooting guide
+
+---
+
 ## 🏗️ Architecture
 
 This solution implements **Vertical Slice Architecture**, organizing features vertically rather than by technical layers.
