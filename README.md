@@ -27,6 +27,24 @@ This solution implements **Vertical Slice Architecture**, organizing features ve
 
 Each feature is **self-contained** and **independently testable**.
 
+---
+
+## 💾 Database Configuration
+
+### Current Setup: SQL Server
+
+The project is configured to use **SQL Server** with Entity Framework Core.
+
+**For detailed SQL Server setup instructions**, see: **[🛠️ SQL SERVER SETUP GUIDE](./SQL_SERVER_SETUP_GUIDE.md)**
+
+This guide includes:
+- ✅ SQL Server installation and configuration
+- ✅ Connection string examples
+- ✅ Windows Authentication and SQL Server Authentication setup
+- ✅ Entity Framework migrations
+- ✅ Troubleshooting common issues
+- ✅ Performance tuning recommendations
+
 ## 📦 Project Structure
 
 ## ✨ Key Features
@@ -59,7 +77,9 @@ Each feature is **self-contained** and **independently testable**.
 ### Prerequisites
 - **.NET 8 SDK** or latest
 - **Visual Studio 2022** (optional)
-- **SQLite** (included with .NET)
+- **SQL Server 2019** or later (Express, Developer, or Standard Edition)
+  - Download: [SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
+  - Or use existing SQL Server instance
 
 ### 1. Clone & Navigate
 git clone <repository-url> cd TaskManagement.Solution
@@ -174,27 +194,50 @@ dotnet test --filter ClassName=CreateTaskHandlerTests
 ## ⚙️ Configuration
 
 ### appsettings.json
-{ "ConnectionStrings": { "DefaultConnection": "Data Source=taskmanagement.db" } }
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=TaskManagement;Trusted_Connection=true;TrustServerCertificate=true;"
+  }
+}
+```
+
 ### Environment Variables
 - `ASPNETCORE_ENVIRONMENT`: Set to `Development` or `Production`
 
-### Switch to SQL Server
-**Update appsettings.json:**
-````````
-{ "ConnectionStrings": { "DefaultConnection": "Server=tcp:your_sql_server,1433;Database=taskmanagement;User Id=your_username;Password=your_password;" } }
-{ "ConnectionStrings": { "DefaultConnection": "Server=localhost;Database=TaskManagement;Trusted_Connection=true;" } }
+### SQL Server Configuration
 
-# Response
+✅ **Already Configured for SQL Server!**
 
-````````
+The project is pre-configured to use SQL Server with Entity Framework Core.
 
-**Update Program.cs:**
-````````
-options.UseSqlServer(connectionString);
+**Common Connection Strings:**
 
-# Response
+**Windows Authentication (Recommended for Development):**
+```
+Server=localhost;Database=TaskManagement;Trusted_Connection=true;TrustServerCertificate=true;
+```
 
-````````
+**SQL Server Authentication:**
+```
+Server=localhost;Database=TaskManagement;User Id=sa;Password=YourPassword123!;TrustServerCertificate=true;
+```
+
+**SQL Server Express (Named Instance):**
+```
+Server=localhost\SQLEXPRESS;Database=TaskManagement;Trusted_Connection=true;TrustServerCertificate=true;
+```
+
+---
+
+## 📚 SQL Server Documentation
+
+For complete SQL Server setup and configuration, see these guides:
+
+- **[🛠️ SQL Server Setup Guide](./SQL_SERVER_SETUP_GUIDE.md)** - Comprehensive setup and installation guide
+- **[⚡ SQL Server Quick Reference](./SQL_SERVER_QUICK_REFERENCE.md)** - Quick commands and reference
+- **[📋 SQL Server Complete Reference](./SQLSERVER_COMPLETE_REFERENCE.md)** - Complete configuration reference with examples
+- **[✅ SQL Server Migration Summary](./SQLSERVER_MIGRATION_SUMMARY.md)** - What changed and how to proceed
 
 ---
 
